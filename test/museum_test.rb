@@ -55,6 +55,6 @@ class MuseumTest < Minitest::Test
     @dmns.admit(@patron_2)
     @dmns.admit(@patron_3)
 
-    assert_equal [@patron1, @patron2, @patron3], @dmns.patrons
+    assert_equal [@patron_1, @patron_2, @patron_3], @dmns.patrons
   end
 end
