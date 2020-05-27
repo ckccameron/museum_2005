@@ -23,4 +23,9 @@ class Museum
   def admit(patron)
     @patrons << patron
   end
-end
+
+  def patrons_by_exhibit_interest
+    
+  end
+
+  end
