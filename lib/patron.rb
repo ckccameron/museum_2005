@@ -1,4 +1,4 @@
-class Patron
+class Patron 
   attr_reader :name,
               :spending_money,
               :interests
