@@ -14,10 +14,7 @@ class Museum
   end
 
   def recommend_exhibits(patron)
-    @exhibits.reduce([]) do |acc|
-      acc = patron.interests
-      acc
-    end
+    patron.interests
   end
 
   def admit(patron)
@@ -25,7 +22,10 @@ class Museum
   end
 
   def patrons_by_exhibit_interest
-    
+    recommended_exhibits = {}
+    @exhibits.each do |exhibit|
+      recommended_exhibits[exhibit] = patrons
+
   end
 
   end
