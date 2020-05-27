@@ -14,16 +14,14 @@ class MuseumTest < Minitest::Test
 
     @patron_1 = Patron.new("Bob", 20)
     @patron_2 = Patron.new("Sally", 20)
-
-
+    @patron_3 = Patron.new("Johnny", 5)
   end
-  def test_it_exists
 
+  def test_it_exists
     assert_instance_of Museum, @dmns
   end
 
   def test_it_has_readable_museum_attributes
-
     assert_equal "Denver Museum of Nature and Science", @dmns.name
     assert_equal [], @dmns.exhibits
     assert_equal [], @dmns.patrons
@@ -50,5 +48,13 @@ class MuseumTest < Minitest::Test
 
     assert_equal [@gems_and_minerals, @dead_sea_scrolls], @dmns.recommend_exhibits(@patron_1)
     assert_equal [@imax], @dmns.recommend_exhibits(@patron_2)
+  end
+
+  def test_it_can_admit_patrons
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+
+    assert_equal [@patron1, @patron2, @patron3], @dmns.patrons
   end
 end
