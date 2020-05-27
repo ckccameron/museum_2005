@@ -36,7 +36,6 @@ class MuseumTest < Minitest::Test
   end
 
   def test_it_can_recommend_exhibits_based_on_patron_interests
-    skip
     @dmns.add_exhibit(@gems_and_minerals)
     @dmns.add_exhibit(@dead_sea_scrolls)
     @dmns.add_exhibit(@imax)
@@ -59,7 +58,6 @@ class MuseumTest < Minitest::Test
   end
 
   def test_it_can_sort_patrons_by_exhibit_interest
-
     @dmns.add_exhibit(@gems_and_minerals)
     @dmns.add_exhibit(@dead_sea_scrolls)
     @dmns.add_exhibit(@imax)

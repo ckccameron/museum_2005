@@ -14,7 +14,9 @@ class Museum
   end
 
   def recommend_exhibits(patron)
-    patron.interests
+    @exhibits.find_all do |exhibit|
+      patron.interests.include?(exhibit.name)
+    end
   end
 
   def admit(patron)
@@ -22,10 +24,12 @@ class Museum
   end
 
   def patrons_by_exhibit_interest
-    recommended_exhibits = {}
-    @exhibits.each do |exhibit|
-      recommended_exhibits[exhibit] = patrons
-
+    @exhibits.reduce({}) do |acc, exhibit|
+      acc[exhibit] = patrons.find_all do |patron|
+        patron.interests.include?(exhibit.name)
+      end
+    end
+    acc
   end
-
-  end
+  #no implicit conversion of Exhibit into integer error
+end
